@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #c3c3c3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #2e8b57;
+  }
+  
+  .clouds {
+    display: flex;
+    justify-content: center; /* Centraliza as nuvens horizontalmente */
+    flex-wrap: wrap; /* Permite que as nuvens se movam para a linha seguinte em telas menores */
+    gap: 15px; /* Espaçamento entre as nuvens */
+    margin-bottom: 30px;
+  }
+  
+  .cloud {
+    width: 100px;
+    height: 60px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    position: relative;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .cloud::before, .cloud::after {
+    content: '';
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+  }
+  
+  .cloud::before {
+    width: 80px;
+    height: 50px;
+    top: -20px;
+    left: 15px;
+  }
+  
+  .cloud::after {
+    width: 70px;
+    height: 40px;
+    bottom: -20px;
+    right: 10px;
+  }
+  
+  .message {
+    display: none;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #ffeb3b;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1.2em;
+    color: #333;
+    width: 90%; /* Garante que a mensagem ocupe quase toda a largura da tela em dispositivos pequenos */
+    max-width: 400px; /* Limita o tamanho da mensagem para telas maiores */
+    margin-left: auto;
+    margin-right: auto; /* Centraliza a mensagem horizontalmente */
+  }
+
+  .cloud:active {
+    animation: clickEffect 0.3s ease-out;
+  }
+  
+  
+
+  @keyframes clickEffect {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+    }
+    50% {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(0, 0, 255, 0.8);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+    }
+  }
+  
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  /* Media Queries para telas menores */
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 1.5em; /* Ajusta o tamanho da fonte no título para telas pequenas */
+    }
+  
+    .clouds {
+      flex-direction: column; /* Coloca as nuvens em uma coluna em vez de linha */
+      align-items: center; /* Centraliza as nuvens */
+    }
+  
+    .cloud {
+      width: 80px;
+      height: 50px; /* Ajusta o tamanho das nuvens para telas pequenas */
+    }
+  
+    .message {
+      font-size: 1em; /* Ajusta o tamanho da fonte na mensagem */
+    }
+  }
+  
