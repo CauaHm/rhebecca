@@ -1,26 +1,30 @@
-// Mensagens fixas
-const messages = [
-    "Você é uma pessoa muito forte",
-    "Eu te admiro demais",
-    "Amo cada conversa, risada e assuntos aleatorios que você sempre me proporciona",
-    "Em tão pouco tempo você se tornou uma pessoa muito especial pra mim",
-    "Nunca esquece o quanto você vale e da mulher incrivel que você é"
-  ];
+document.querySelectorAll('.cloud').forEach(cloud => {
+    cloud.addEventListener('click', (e) => {
+      createParticles(e.pageX, e.pageY); // Posições de onde a nuvem foi clicada
+    });
+  });
   
-  // Função que exibe a mensagem ao clicar na nuvem
-  function showMessage(message) {
-    const messageBox = document.getElementById("message");
-    messageBox.style.display = "block";
-    messageBox.innerHTML = message;
-    
-    // Simula a mensagem especial escondida
-    if (message === "Nunca esquece o quanto você vale e da mulher incrivel que você é") {
-      setTimeout(() => {
-        messageBox.innerHTML += "<br><br><strong>Mesmo longe, eu sempre vou querer te ver bem. Não importa o motivo ou qualquer razão que seja, pode contar cmg pra tudo! ❤️ obs: no momento dinheiro nao muito mas juro que quando estiver melhor eu tmb te ajudo KKKKKK </strong>";
-        messageBox.style.backgroundColor = "#ff4081"; // Muda a cor para destaque
-        messageBox.classList.add('special-message');
-      }, 1000);
-    }
+  function createParticles(x, y) {
+    const particle = document.createElement('div');
+    particle.style.position = 'absolute';
+    particle.style.width = '10px';
+    particle.style.height = '10px';
+    particle.style.borderRadius = '50%';
+    particle.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+    particle.style.left = `${x - 5}px`;
+    particle.style.top = `${y - 5}px`;
+    document.body.appendChild(particle);
+  
+    // Anima a partícula
+    let size = 5;
+    let opacity = 1;
+    let interval = setInterval(() => {
+      size += 1;
+      opacity -= 0.1;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      particle.style.opacity = opacity;
+      if (opacity <= 0) clearInterval(interval);
+    }, 50);
   }
-
   
