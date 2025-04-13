@@ -16,7 +16,7 @@ const messages = [
     // Simula a mensagem especial escondida
     if (message === "Nunca esquece o quanto você vale e da mulher incrivel que você é") {
       setTimeout(() => {
-        messageBox.innerHTML += "<br><br><strong>Mesmo longe, eu sempre vou querer te ver bem ❤️</strong>";
+        messageBox.innerHTML += "<br><br><strong>Mesmo longe, eu sempre vou querer te ver bem. Não importa o motivo ou qualquer razão que seja, pode contar cmg pra tudo! ❤️ obs: no momento dinheiro nao muito mas juro que quando estiver melhor eu tmb te ajudo KKKKKK </strong>";
         messageBox.style.backgroundColor = "#ff4081"; // Muda a cor para destaque
         messageBox.classList.add('special-message');
       }, 1000);
