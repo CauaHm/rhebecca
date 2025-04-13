@@ -121,9 +121,8 @@
     }
   
     .clouds {
-      flex-direction: column; /* Coloca as nuvens em uma coluna em vez de linha */
       align-items: center; /* Centraliza as nuvens */
-      gap: 25px; /* Mantém o espaçamento entre as nuvens */
+      gap: 65px; /* Mantém o espaçamento entre as nuvens */
     }
   
     .cloud {
